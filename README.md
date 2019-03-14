@@ -1,2 +1,1 @@
-# nginx
-Descrição do git hub
+Exemplos nginx
