@@ -9,7 +9,7 @@ server {
 
 	error_page 404 =302 /;
 
-	location ~ \.(css|png|jpg)$ {
+	location ~ \.(css|png|jpg|svg)$ {
         	expires max;
 	}    
 
