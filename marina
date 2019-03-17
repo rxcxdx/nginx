@@ -1,27 +1,25 @@
 server {
 
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	server_tokens off;    
-	expires -1;
+  listen 80 default_server;
+  server_tokens off;
+  expires -1;
 
-	root /apps/marina-frontend;
+  root /apps/marina-frontend;
 
-	error_page 404 =302 /;
+  error_page 404 =302 /;
 
-	location ~ \.(css|png|jpg|svg)$ {
-        	expires max;
-	}    
+  location ~ \.(css|png|jpg|svg)$ {
+    expires max;
+  }
 
-        location /ws/ {
-            proxy_pass http://127.0.0.1:3000;
-        }
+  location /ws/ {
+    proxy_pass http://127.0.0.1:3000;
+  }
 
-    error_page 502 @sorry;
+  error_page 502 @sorry;
 
-    location @sorry {
-        return 502 "Erro ws conexão";
-    }
+  location @sorry {
+    return 502 "Erro ws conexão";
+  }
 
 }
-
